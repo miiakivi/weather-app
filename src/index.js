@@ -1,18 +1,28 @@
 import './style.css';
 import regeneratorRuntime from "regenerator-runtime";
 
-let currentWeather;
+import {
+    returnCelsius,
+    returnFahrenheit,
+    getSunsetOrSunrise
+} from './helpers';
 
-async function fetchWeatherData() {
-    const response = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Helsinki&appid=68f520abb598fb1452dd8381782372e7');
+const searchInput = document.querySelector('.search-cont__input');
+const searchBtn = document.querySelector('.search-cont__btn');
+
+let currentLocation = '';
+let currentWeather = {};
+
+async function fetchWeatherData(location) {
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=68f520abb598fb1452dd8381782372e7`);
     if (response.status !== 200) {
         throw new Error('cannot fetch the data');
     }
     return await response.json();
 }
 
-function processWeatherData() {
-    fetchWeatherData()
+function processWeatherData(location) {
+    fetchWeatherData(location)
         .then((response) => {
             getCurrentWeatherObj(response);
 
@@ -50,19 +60,11 @@ function getCurrentWeatherObj(weatherData) {
             city: weatherData.name
         }
     };
+    console.log('location is ' +  currentWeather.location.city + ' ' + currentWeather.location.country + '. Weather there is ' + currentWeather.description + ' ' + currentWeather.temperature.cel + ' cel.');
 }
 
-function returnCelsius(value) {
-    return (value - 273.15).toFixed(1);
-}
+searchBtn.addEventListener('click', () => {
+    processWeatherData(searchInput.value);
+    searchInput.value = '';
+})
 
-function returnFahrenheit(value) {
-    return (((value - 273.15) * 1.8) + 32).toFixed(1);
-}
-
-function getSunsetOrSunrise(time) {
-    let sunTime = new Date(time * 1000);
-    return sunTime.getHours() + ":" + sunTime.getMinutes()
-}
-
-processWeatherData();
