@@ -1,0 +1,133 @@
+.weath--cont {
+    display: none;
+    padding: 50px 0;
+    color: var(--main-dark-clr);
+    border: 2px yellow solid;
+}
+
+.weath--cont__container {
+    box-shadow: none;
+
+}
+
+.weath--cont__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 15rem 5rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-bottom: 1.6rem;
+    border-radius: 2%;
+    background-color: var(--main-background-clr);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+
+.weath--cont__location {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+}
+
+.weath--cont-btn {
+    position: absolute;
+    padding: 0.7em;
+    left: -1rem;
+    top: -1rem;
+    border-radius: 100%;
+    border: none;
+    font-size: 1.5rem;
+    font-family: var(--main-font);
+    background-color: var(--main-btn-clr);
+    box-shadow: var(--main-shadow);
+    transition: all 0.2s ease-in-out;
+}
+
+.weath--cont-btn:focus {
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.weath--cont-btn:hover {
+    background-color: var(--btn-hover-clr);
+    box-shadow: var(--btn-hover-shadow);
+}
+
+.weath--cont__location::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 0.2em;
+    width: 10em;
+    transform: rotate(90deg);
+    top: 50%;
+    left: 55%;
+    background-color: var(--darker-accent-clr);
+}
+
+.location__city {
+    margin-top: 20%;
+    margin-bottom: 0;
+}
+
+.location__temp {
+    font-size: 6rem;
+    margin: 0;
+    position: relative;
+}
+
+.location__temp span {
+    position: absolute;
+    font-size: 2rem;
+    top: 0.2em;
+}
+
+
+.weath--cont__img {
+    grid-area: 1 / 2 / 2 / 3;
+    position: relative;
+}
+
+
+.weath--cont__img p {
+    margin: 0 auto 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+}
+
+
+.weath--cont__text {
+    grid-area: 2 / 1 / 3 / 3;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.text-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    justify-self: end;
+}
+
+
+.text-cont p {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #119FEA;
+}
+
+.text-cont__img {
+    justify-self:center;
+}
+
+.text-cont__img img {
+    margin: 0.5em;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+

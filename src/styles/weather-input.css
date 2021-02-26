@@ -1,0 +1,18 @@
+.search-loc {
+    display: none;
+    text-align: right;
+    width: 100%;
+    padding: 1em;
+}
+
+.search-loc__container {
+    padding: 1em;
+    text-align: right;
+    position: relative;
+}
+
+.material-icons.second.input-icon {
+    position: absolute;
+    top: 35%;
+    right: 12%;
+}

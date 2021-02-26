@@ -1,12 +1,14 @@
-import './style.css';
+import './main.css';
 import regeneratorRuntime from "regenerator-runtime";
 
 import {
     returnCelsius,
     returnFahrenheit,
-    getSunsetOrSunrise
-} from './helpers';
+    getSunsetOrSunrise,
+    switchScreenDisplay,
+} from './scripts/helpers';
 
+const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
 const searchBtn = document.querySelector('.search-cont__btn');
 
@@ -63,8 +65,10 @@ function getCurrentWeatherObj(weatherData) {
     console.log('location is ' +  currentWeather.location.city + ' ' + currentWeather.location.country + '. Weather there is ' + currentWeather.description + ' ' + currentWeather.temperature.cel + ' cel.');
 }
 
+
+
 searchBtn.addEventListener('click', () => {
     processWeatherData(searchInput.value);
-    searchInput.value = '';
+    switchScreenDisplay();
 })
 

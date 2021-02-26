@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400;700&display=swap');
+@import 'styles/start-screen.css';
+@import 'styles/animations.css';
+@import 'styles/current-weather-styles.css';
+@import 'styles/weather-input.css';
+
+:root {
+    --main-btn-clr: #72b1f1;
+    --btn-hover-clr: #8cbbf3;
+    --main-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    --btn-hover-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+    --main-dark-clr: #23424a;
+    --darker-accent-clr: #0A5C87;
+    --main-font: 'Barlow', sans-serif;
+    --main-background-clr: #fcfcfc;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 1.3rem;
+    background-image: url("images/clouds2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--main-font);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr) 5rem;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-content {
+    grid-area: 1 / 1 / 4 / 5;
+}
+
+.container {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: auto;
+}
+
+.head-container {
+    padding: 90px 0;
+}
+
+.search-input {
+    padding: 0.4em;
+    font-size: 1.1rem;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    box-shadow: var(--main-shadow);
+}
+.search-input:focus {
+    outline: none;
+    box-shadow: var(--btn-hover-shadow);
+}
+
+.footer {
+    grid-area: 4 / 1 / 5 / 5;
+    background-color: rgba(0,7,15,0.65);
+}
+
+.fade-out {
+    animation: fadeOut 0.2s ease-out 0s alternate 1 none running;
+}
+
+.fade-in {
+    animation: fadeIn 0.2s ease-out 0s alternate 1 none running;
+}
+
+.material-icons.input-icon {
+    color: #b4b4b4;
+}
