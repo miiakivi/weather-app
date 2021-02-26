@@ -88,6 +88,10 @@
     position: relative;
 }
 
+.weath--cont__img img {
+    width: 80%;
+}
+
 
 .weath--cont__img p {
     margin: 0 auto 0 auto;

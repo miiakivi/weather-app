@@ -8,6 +8,10 @@ import {
     switchScreenDisplay,
 } from './scripts/helpers';
 
+import {
+    createCurrentWeatherInfo,
+} from './scripts/dom';
+
 const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
 const searchBtn = document.querySelector('.search-cont__btn');
@@ -27,7 +31,7 @@ function processWeatherData(location) {
     fetchWeatherData(location)
         .then((response) => {
             getCurrentWeatherObj(response);
-
+            createCurrentWeatherInfo(currentWeather);
         })
         .catch((err) => {
             console.log(err)
@@ -38,7 +42,9 @@ function processWeatherData(location) {
 function getCurrentWeatherObj(weatherData) {
     let mainSection = weatherData.main;
     currentWeather = {
-        description: weatherData.weather[0].main,
+        description: weatherData.weather[0].description,
+        descriptionId: weatherData.weather[0].id,
+        humidity: mainSection.humidity,
         temperature: {
             cel: returnCelsius(mainSection.temp),
             fah: returnFahrenheit(mainSection.temp),
@@ -69,6 +75,7 @@ function getCurrentWeatherObj(weatherData) {
 
 searchBtn.addEventListener('click', () => {
     processWeatherData(searchInput.value);
+
     switchScreenDisplay();
 })
 
