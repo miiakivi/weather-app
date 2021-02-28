@@ -3,9 +3,10 @@
 @import 'styles/animations.css';
 @import 'styles/current-weather-styles.css';
 @import 'styles/weather-input.css';
+@import 'styles/forecast.css';
 
 :root {
-    --main-btn-clr: #72b1f1;
+    --main-btn-clr: #469efc;
     --btn-hover-clr: #8cbbf3;
     --main-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     --btn-hover-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
@@ -13,6 +14,7 @@
     --darker-accent-clr: #0A5C87;
     --main-font: 'Barlow', sans-serif;
     --main-background-clr: #fcfcfc;
+    --border-radius: 10px;
 
 }
 
@@ -32,7 +34,7 @@ body {
 .content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr) 5rem;
+    grid-template-rows: repeat(3, 1fr) 1rem;
     height: 100vh;
     width: 100vw;
 }
@@ -81,4 +83,18 @@ body {
 
 .material-icons.input-icon {
     color: #b4b4b4;
+}
+
+.spinner-cont {
+    width: 15%;
+    padding: 1em;
+    margin: 6em auto;
+    text-align: center;
+    background-color: var(--main-background-clr);
+    box-shadow: var(--main-shadow);
+    border-radius: 3%;
+}
+
+.spinner {
+    width: 100%;
 }

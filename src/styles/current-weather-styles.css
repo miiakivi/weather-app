@@ -1,13 +1,11 @@
 .weath--cont {
     display: none;
-    padding: 50px 0;
+    padding: 10px 0;
     color: var(--main-dark-clr);
-    border: 2px yellow solid;
 }
 
 .weath--cont__container {
     box-shadow: none;
-
 }
 
 .weath--cont__info {
@@ -18,7 +16,7 @@
     max-width: 500px;
     margin: 0 auto;
     padding-bottom: 1.6rem;
-    border-radius: 2%;
+    border-radius: var(--border-radius);
     background-color: var(--main-background-clr);
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
@@ -29,7 +27,7 @@
     position: relative;
 }
 
-.weath--cont-btn {
+.change-temp-degree-btn {
     position: absolute;
     padding: 0.7em;
     left: -1rem;
@@ -43,12 +41,12 @@
     transition: all 0.2s ease-in-out;
 }
 
-.weath--cont-btn:focus {
+.change-temp-degree-btn:focus {
     outline: none;
     box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
 
-.weath--cont-btn:hover {
+.change-temp-degree-btn:hover {
     background-color: var(--btn-hover-clr);
     box-shadow: var(--btn-hover-shadow);
 }

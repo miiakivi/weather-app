@@ -6,43 +6,40 @@
     <title>Weather app</title>
 </head>
 <body>
-    <div class="content">
-        <div class="main-content">
-
-            <div class="head-container search-cont">
-                <div class="container search-cont__container">
-                    <div class="search-cont__text">
-                        <img class="search-cont__image" src="weather-icons/partly-cloudy-day.svg" alt="">
-                        <h1 class="search-cont__title">Weather app</h1>
-                        <p>Search current weather in your region. Start by typing your location on the search bar.</p>
-                    </div>
-                    <div class="search-cont__form">
-                        <label class="input__container" for="weather-location">
-                            <span class="material-icons start input-icon">search</span>
-                            <input class="search-input search-cont__input" type="text" name="weather-location"
-                                   id="weather-location">
-                        </label>
-                        <div class="">
-                            <button class="search-cont__btn">Search</button>
-                        </div>
-                    </div>
+    <div class="head-container search-cont">
+        <div class="container search-cont__container">
+            <div class="search-cont__text">
+                <img class="search-cont__image" src="weather-icons/partly-cloudy-day.svg" alt="">
+                <h1 class="search-cont__title">Weather app</h1>
+                <p>Search current weather in your region. Start by typing your location on the search bar.</p>
+            </div>
+            <div class="search-cont__form">
+                <label class="input__container" for="start-input-weather-loc">
+                    <span class="material-icons start input-icon">search</span>
+                    <input class="search-input search-cont__input" type="text" name="weather-location"
+                           id="start-input-weather-loc">
+                </label>
+                <div class="">
+                    <button class="search-cont__btn">Search</button>
                 </div>
             </div>
-
-            <div class="search-loc">
-                <label class="search-loc__container" for="main-weather-location">
-                    <span class="material-icons second input-icon">search</span>
-                    <input class="search-input container__input" type="text" name="weather-location"
-                           id="main-weather-location">
-                </label>
-            </div>
-
-            <div class="weath--cont">
-            </div>
-
         </div>
+    </div>
 
-        <div class="footer"></div>
+    <div class="search-loc">
+        <label class="search-loc__container" for="search-location-weather">
+            <span class="material-icons second input-icon">search</span>
+            <input class="search-input container__input" type="text" name="weather-location"
+                   id="search-location-weather">
+        </label>
+    </div>
+
+    <div class="weath--cont">
+        <!-- This is where current days weather info will come -->
+    </div>
+
+    <div class="forecast-cont">
+
     </div>
 
 

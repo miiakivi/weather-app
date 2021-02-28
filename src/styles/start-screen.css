@@ -1,13 +1,12 @@
 /*Starting screen element styles*/
 
 .search-cont {
-    display: block;
     color: var(--main-dark-clr);
 }
 .search-cont__container {
     background-color: var(--main-background-clr);
     padding: 4.5em 1em 1em 1em;
-    border-radius: 2%;
+    border-radius: var(--border-radius);
     box-shadow: var(--main-shadow);
 }
 

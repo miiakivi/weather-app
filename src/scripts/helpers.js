@@ -1,5 +1,8 @@
+
+
 const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
+
 
 function returnCelsius(value) {
     return (value - 273.15).toFixed(1);
@@ -9,10 +12,12 @@ function returnFahrenheit(value) {
     return (((value - 273.15) * 1.8) + 32).toFixed(1);
 }
 
-function getSunsetOrSunrise(time) {
-    let sunTime = new Date(time * 1000);
-    return sunTime.getHours() + ":" + sunTime.getMinutes()
+function getSunsetOrSunrise(time, timezoneOffset) {
+    let sunTime = new Date((time + timezoneOffset) * 1000);
+    console.log('sun action before formating ' + sunTime);
+    return sunTime.getUTCHours() + ":" + sunTime.getUTCMinutes();
 }
+
 
 function switchScreenDisplay() {
     let currentDayWeatherCont = document.querySelector('.weath--cont');
@@ -31,19 +36,17 @@ function switchScreenDisplay() {
     searchInput.value = '';
 }
 
-function getCurrentDate() {
-    let now = new Date();
+function getCurrentDate(time) {
+    let date = new Date(time * 1000);
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    let weekday = days[now.getDay()];
-    let day = now.getDate();
-    let month = now.getMonth() + 1;
-    let year = now.getFullYear();
-
-    return `${weekday} ${day}.${month}.${year}`;
+    let weekday = days[date.getDay()];
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    return [weekday, ` ${day}.${month}.${year}`];
 }
 
-getCurrentDate();
 
 export {
     returnCelsius,
