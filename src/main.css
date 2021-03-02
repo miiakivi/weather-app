@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400;700&display=swap');
+@import 'styles/media.css';
 @import 'styles/start-screen.css';
 @import 'styles/animations.css';
 @import 'styles/current-weather-styles.css';
 @import 'styles/weather-input.css';
 @import 'styles/forecast.css';
+
+
+
+
 
 :root {
     --main-btn-clr: #469efc;
@@ -25,22 +30,10 @@
 body {
     margin: 0;
     font-size: 1.3rem;
+    font-family: var(--main-font);
     background-image: url("images/clouds2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: var(--main-font);
-}
-
-.content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr) 1rem;
-    height: 100vh;
-    width: 100vw;
-}
-
-.main-content {
-    grid-area: 1 / 1 / 4 / 5;
 }
 
 .container {
@@ -63,14 +56,14 @@ body {
     border-radius: 100px;
     box-shadow: var(--main-shadow);
 }
+
 .search-input:focus {
     outline: none;
     box-shadow: var(--btn-hover-shadow);
 }
 
-.footer {
-    grid-area: 4 / 1 / 5 / 5;
-    background-color: rgba(0,7,15,0.65);
+.subheading {
+    font-size: 1.5rem;
 }
 
 .fade-out {
@@ -83,6 +76,18 @@ body {
 
 .material-icons.input-icon {
     color: #b4b4b4;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.material-icons.local-time {
+    color: var(--darker-accent-clr);
+    font-size: 1.2rem;
+    justify-self: end;
+}
+
+.material-icons.input-icon:hover {
+    color: #767676;
 }
 
 .spinner-cont {
@@ -98,3 +103,4 @@ body {
 .spinner {
     width: 100%;
 }
+

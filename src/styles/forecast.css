@@ -8,14 +8,14 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-column-gap: 1em;
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    padding: 1em;
     text-align: center;
     background-color: rgba(252, 252, 252, 0.41);
     border-radius: var(--border-radius);
     box-shadow: var(--main-shadow);
-    padding: 1em;
 }
 
 .forecast__box {

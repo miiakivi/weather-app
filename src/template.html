@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Weather app</title>
 </head>
@@ -11,13 +12,13 @@
             <div class="search-cont__text">
                 <img class="search-cont__image" src="weather-icons/partly-cloudy-day.svg" alt="">
                 <h1 class="search-cont__title">Weather app</h1>
-                <p>Search current weather in your region. Start by typing your location on the search bar.</p>
+                <p>Search current weather in your region. Start by typing your city on the search bar.</p>
             </div>
             <div class="search-cont__form">
                 <label class="input__container" for="start-input-weather-loc">
-                    <span class="material-icons start input-icon">search</span>
+                    <span id="start-icon" class="material-icons start input-icon">search</span>
                     <input class="search-input search-cont__input" type="text" name="weather-location"
-                           id="start-input-weather-loc">
+                           id="start-input-weather-loc" placeholder ="Search...">
                 </label>
                 <div class="">
                     <button class="search-cont__btn">Search</button>
@@ -28,9 +29,9 @@
 
     <div class="search-loc">
         <label class="search-loc__container" for="search-location-weather">
-            <span class="material-icons second input-icon">search</span>
+            <span id="second-icon" class="material-icons second input-icon">search</span>
             <input class="search-input container__input" type="text" name="weather-location"
-                   id="search-location-weather">
+                   id="search-location-weather" placeholder="Search...">
         </label>
     </div>
 
@@ -39,7 +40,7 @@
     </div>
 
     <div class="forecast-cont">
-
+        <!--This is where five day forecast will appear -->
     </div>
 
 

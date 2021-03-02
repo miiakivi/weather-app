@@ -1,8 +1,5 @@
-
-
 const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
-
 
 function returnCelsius(value) {
     return (value - 273.15).toFixed(1);
@@ -14,7 +11,6 @@ function returnFahrenheit(value) {
 
 function getSunsetOrSunrise(time, timezoneOffset) {
     let sunTime = new Date((time + timezoneOffset) * 1000);
-    console.log('sun action before formating ' + sunTime);
     return sunTime.getUTCHours() + ":" + sunTime.getUTCMinutes();
 }
 
@@ -36,15 +32,50 @@ function switchScreenDisplay() {
     searchInput.value = '';
 }
 
+
 function getCurrentDate(time) {
     let date = new Date(time * 1000);
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    let weekday = days[date.getDay()];
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
+    let weekday = days[date.getUTCDay()];
+    let day = date.getUTCDate();
+    let month = date.getUTCMonth() + 1;
+    let year = date.getUTCFullYear();
     return [weekday, ` ${day}.${month}.${year}`];
+}
+
+function getLocalTime(timezoneOffset) {
+    let now = (Date.now() / 1000) + timezoneOffset;
+    let time = new Date(now * 1000);
+    let hours = time.getUTCHours();
+    let minutes = time.getUTCMinutes();
+    if(minutes < 10 ) minutes = '0' + minutes;
+    return hours + ":" + minutes;
+}
+
+
+function firstToUpper(obj) {
+    return obj.description.charAt(0).toUpperCase() + obj.description.slice(1);
+}
+
+function getTemperature(obj, temp) {
+    let temperature;
+    let min;
+    let max;
+    let icon;
+
+    if (temp === 'cel') {
+        temperature = obj.temperature.cel;
+        min = obj.tempMin.cel;
+        max = obj.tempMax.cel;
+        icon = 'C'
+    } else {
+        temperature = obj.temperature.fah;
+        min = obj.tempMin.fah;
+        max = obj.tempMax.fah;
+        icon = 'F';
+    }
+    return {temperature, min, max, icon}
 }
 
 
@@ -54,4 +85,7 @@ export {
     getSunsetOrSunrise,
     switchScreenDisplay,
     getCurrentDate,
+    getLocalTime,
+    firstToUpper,
+    getTemperature
 }

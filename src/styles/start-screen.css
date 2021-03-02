@@ -12,8 +12,9 @@
 
 
 .search-cont__text {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .search-cont__title {
@@ -33,6 +34,12 @@
     margin: 0 0.2em 0.2em 0.2em;
 }
 
+.search-cont__text p {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2em;
+}
+
 .search-cont__image {
     width: 140px;
     position: absolute;
@@ -43,9 +50,7 @@
     margin-right: auto;
 }
 
-.search-cont__text p {
-    margin-bottom: 2em;
-}
+
 
 .search-cont__form {
     display: grid;
@@ -57,33 +62,38 @@
 
 .input__container {
     position: relative;
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
 }
 
 .search-cont__input {
     margin: 0 auto 2em auto;
-    width: 80%;
+    width: 100%;
 }
 
 .material-icons.start.input-icon {
     position: absolute;
     top: 6%;
-    right: 12%;
+    right: 2%;
 
 }
 
 .search-cont__btn {
     display: inline-block;
     padding: 0.75em 2.5em;
-    background-color: var(--main-btn-clr);
-    color: var(--main-dark-clr);
+    cursor: pointer;
+    font-family: var(--main-font);
     font-size: 0.9rem;
     font-weight: 900;
     text-transform: uppercase;
     border-radius: 100px;
     border: none;
     box-shadow: var(--main-shadow);
+    background-color: var(--main-btn-clr);
+    color: var(--main-dark-clr);
     transition: all 0.2s ease-in-out;
-    font-family: var(--main-font);
+
 }
 
 .search-cont__btn:hover,

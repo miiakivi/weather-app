@@ -11,31 +11,56 @@ import partlyCloudyNight from '../weather-icons/partly-cloudy-night.svg';
 import cloudy from '../weather-icons/cloudy.svg';
 import overcast from '../weather-icons/overcast.svg';
 
+// checks local time and local sunset and sunrise time and compares them.
+function checkIfSunHasRisenLocally(obj) {
+    let now = (Date.now() / 1000) + obj.timezoneOffset;
+    let time = new Date(now * 1000);
+    let localTime = time.getUTCHours() + ":" + time.getUTCMinutes()
 
-function getWeatherIcon(obj) {
-    let icon;
-    if (obj.id === 800) {
-        icon = clearDay;
-    } else if (obj.id === 801) {
-        icon = partlyCloudyDay;
-    } else if (obj.id === 802) {
-        icon = cloudy;
-    } else if (obj.id === 803 || obj.id === 804) {
-        icon = overcast;
-    } else if (obj.id === 781) {
-        icon = wind;
-    } else if (obj.id >= 701 && obj.id <= 771) {
-        icon = mist;
-    } else if (obj.id >= 600 && obj.id <= 622) {
-        icon = snow;
-    }else if (obj.id === 500 || obj.id === 501 || obj.id === 502) {
-        icon = drizzle;
-    } else if (obj.id >= 503 && obj.id <= 531) {
-        icon = rain;
-    } else if (obj.id >= 200 && obj.id <= 232) {
-        icon = thunderstorm;
+    if(localTime < obj.sunrise && localTime > obj.sunset) {
+        console.log('sunrise is ' + obj.sunrise + ' and localtime is ' + localTime + ' and sunset is ' + obj.sunset);
+        return false
+    } else {
+        return true;
     }
-    console.log('weather id is ' + obj.id);
+}
+
+// check weather description id and choose right icon for that weather.
+function getWeatherIcon(obj) {
+    let sunHasRisen = checkIfSunHasRisenLocally(obj);
+    let icon;
+
+    if ( obj.id === 800 ) {
+        if ( sunHasRisen ) {
+            icon = clearDay;
+        } else {
+            icon = clearNight
+        }
+    } else if ( obj.id === 801 ) {
+        if ( sunHasRisen ) {
+            icon = partlyCloudyDay;
+        } else {
+            icon = partlyCloudyNight;
+        }
+    } else if ( obj.id === 802 ) {
+        icon = cloudy;
+    } else if ( obj.id === 803 || obj.id === 804 ) {
+        icon = overcast;
+    } else if ( obj.id === 781 ) {
+        icon = wind;
+    } else if ( obj.id >= 701 && obj.id <= 771 ) {
+        icon = mist;
+    } else if ( obj.id >= 600 && obj.id <= 622 ) {
+        icon = snow;
+    } else if ( obj.id === 500 || obj.id === 501 || obj.id === 502 ) {
+        icon = drizzle;
+    } else if ( obj.id >= 503 && obj.id <= 531 ) {
+        icon = rain;
+    } else if ( obj.id >= 200 && obj.id <= 232 ) {
+        icon = thunderstorm;
+    } else {
+        icon = cloudy;
+    }
     return `<img src="${icon}" alt="">`
 }
 

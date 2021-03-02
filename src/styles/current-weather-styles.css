@@ -1,5 +1,4 @@
 .weath--cont {
-    display: none;
     padding: 10px 0;
     color: var(--main-dark-clr);
 }
@@ -38,6 +37,7 @@
     font-family: var(--main-font);
     background-color: var(--main-btn-clr);
     box-shadow: var(--main-shadow);
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .location__city {
-    margin-top: 20%;
+    margin-top: 5%;
     margin-bottom: 0;
 }
 
@@ -78,6 +78,22 @@
     position: absolute;
     font-size: 2rem;
     top: 0.2em;
+}
+
+.local-time-container {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    grid-column-gap: 1%;
+    align-items: end;
+    margin-top: 10%;
+    text-align: start;
+}
+
+.location__local-time {
+    font-size: 1rem;
+    margin-bottom: 0;
+    align-self: start;
+    color: var(--darker-accent-clr);
 }
 
 
