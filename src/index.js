@@ -33,6 +33,11 @@ function processWeatherDataAfterEnter(e, input) {
             mainWeatherInfoCont.innerHTML = createLoadingSpinner();
             input.value = '';
             document.querySelector('.forecast-cont').innerHTML = ' ';
+        } else if(input.id === 'error__search-location') {
+            console.log('enter detected and now processing data')
+            processWeatherData(input.value);
+            mainWeatherInfoCont.innerHTML = createLoadingSpinner();
+            input.value = '';
         }
     }
 }

@@ -16,14 +16,14 @@ import {
     fetchForecastWeatherData
 } from "./async";
 
+const currentWeatherCont = document.querySelector('.weath--cont');
+
 let currentWeather = {};
 let forecastData = [];
 
 let temperature = 'cel';
 
-
 function processWeatherData(location) {
-
     // Reset variables if user has searched multiple times different locations
     currentWeather = {};
     forecastData = [];
@@ -39,7 +39,7 @@ function processWeatherData(location) {
                 })
         })
         .catch((err) => {
-            document.querySelector('.weath--cont').innerHTML = createErrorMessage();
+            currentWeatherCont.innerHTML = createErrorMessage();
             console.log(err);
         })
 }
@@ -107,8 +107,8 @@ function createCurrentWeatherObj(weatherData) {
     };
 }
 
-// USer can change temperature degree unit by clicking it
-document.querySelector('.weath--cont').addEventListener('click', (e) => {
+// User can change temperature degree unit by clicking it
+currentWeatherCont.addEventListener('click', (e) => {
     if (e.target.id === 'change-unit') {
         if (temperature === 'cel') {
             temperature = 'fah';

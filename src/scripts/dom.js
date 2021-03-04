@@ -4,15 +4,16 @@ import {
     getTemperature
 } from './helpers.js';
 
-import {getWeatherIcon} from './weather-icons';
+import {getWeatherIcon} from './weatherIcons';
 
 import drizzle from '../weather-icons/drizzle.svg';
+
+// Icons made by "https://www.flaticon.com/authors/pixel-perfect"
 import sunset from '../images/sunset.png';
 import sunrise from '../images/sunrise.png';
 
 const weatherInfoCont = document.querySelector('.weath--cont');
 const forecastContainer = document.querySelector('.forecast-cont');
-const errorCont = document.querySelector('.error-cont');
 
 function createCurrentWeatherInfo(obj, temp) {
 

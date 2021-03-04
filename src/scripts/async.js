@@ -2,12 +2,13 @@ import {getCountryCode} from './helpers';
 
 let apiKey = '68f520abb598fb1452dd8381782372e7';
 
-
+// Returns right url for api, depending if user has searched only with city's name or city's and country's name
 function getLocationURL(location) {
     let locationArr = location.split(', ');
     let url = '';
 
     if ( locationArr.length === 2 ) {
+        // Return right country
         let countryCode = getCountryCode(locationArr[1])
         url = `http://api.openweathermap.org/data/2.5/weather?q=${locationArr[0]},${countryCode}&appid=${apiKey}`;
     }

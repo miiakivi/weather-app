@@ -1,3 +1,5 @@
+
+// Icons Copyright © 2021 Bas Milius. from https://github.com/basmilius/weather-icons
 import clearDay from '../weather-icons/clear-day.svg';
 import clearNight from '../weather-icons/clear-night.svg';
 import drizzle from '../weather-icons/drizzle.svg';
@@ -11,19 +13,8 @@ import partlyCloudyNight from '../weather-icons/partly-cloudy-night.svg';
 import cloudy from '../weather-icons/cloudy.svg';
 import overcast from '../weather-icons/overcast.svg';
 
-// checks local time and local sunset and sunrise time and compares them.
-function checkIfSunHasRisenLocally(obj) {
-    let now = (Date.now() / 1000) + obj.timezoneOffset;
-    let time = new Date(now * 1000);
-    let localTime = time.getUTCHours() + ":" + time.getUTCMinutes()
+import { checkIfSunHasRisenLocally } from './helpers'
 
-    if(localTime < obj.sunrise && localTime > obj.sunset) {
-        console.log('sunrise is ' + obj.sunrise + ' and localtime is ' + localTime + ' and sunset is ' + obj.sunset);
-        return false
-    } else {
-        return true;
-    }
-}
 
 // check weather description id and choose right icon for that weather.
 function getWeatherIcon(obj) {
