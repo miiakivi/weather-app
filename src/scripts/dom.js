@@ -87,8 +87,8 @@ function createFiveDayForecast(arr, temp) {
     }
 }
 
-function createForecastHtml(i,weatherIcon, currentDate, degreeUnit) {
-    return  `<div id="box-${i}" class="forecast__box">
+function createForecastHtml(i, weatherIcon, currentDate, degreeUnit) {
+    return `<div id="box-${i}" class="forecast__box">
                 <div class="forecast__date">
                     <p class="forecast__weekday">${currentDate[0]}</p>
                     <p class="forecast__day">${currentDate[1]}</p>
@@ -113,12 +113,13 @@ function createErrorMessage() {
             <label class="error__label" for="error__search-location">
                 <span id="error-icon" class="material-icons error input-icon">search</span>
                 <input class="search-input error__input" type="text" name="weather-location"
-                       id="error__search-location" placeholder="Search...">
+                       id="error__search-location" placeholder="Search..."
+                       title="Type your city (Helsinki) or your city and country separated with comma (Helsinki, Finland)"
+                               value="">
             </label>
         </div>
        </div>`
 }
-
 
 
 export {

@@ -20,7 +20,7 @@
     padding-bottom: 1em;
     border-radius: var(--border-radius);
     background-color: var(--main-background-clr);
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    box-shadow: var(--main-shadow);
 }
 
 

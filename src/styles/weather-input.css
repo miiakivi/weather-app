@@ -1,5 +1,10 @@
 /*----------Input elements styles--------------*/
 
+input[aria-invalid="true"], textarea[aria-invalid="true"] {
+    border: 1px solid #f00;
+    box-shadow: 0 0 4px 0 #f00;
+}
+
 .search-loc {
     display: none;
     text-align: right;
@@ -41,6 +46,7 @@
     text-align: center;
     background-color: var(--main-background-clr);
     border-radius: var(--border-radius);
+    box-shadow: var(--main-shadow);
 }
 
 .error__container p {
