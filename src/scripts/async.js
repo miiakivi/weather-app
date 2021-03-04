@@ -10,10 +10,10 @@ function getLocationURL(location) {
     if ( locationArr.length === 2 ) {
         // Return right country
         let countryCode = getCountryCode(locationArr[1])
-        url = `http://api.openweathermap.org/data/2.5/weather?q=${locationArr[0]},${countryCode}&appid=${apiKey}`;
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${locationArr[0]},${countryCode}&appid=${apiKey}`;
     }
     if ( locationArr.length === 1 ) {
-        url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
     }
     return url
 }
