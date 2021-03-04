@@ -1,14 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400;700&display=swap');
-@import 'styles/media.css';
 @import 'styles/start-screen.css';
 @import 'styles/animations.css';
 @import 'styles/current-weather-styles.css';
 @import 'styles/weather-input.css';
 @import 'styles/forecast.css';
-
-
-
-
 
 :root {
     --main-btn-clr: #469efc;
@@ -20,8 +15,9 @@
     --main-font: 'Barlow', sans-serif;
     --main-background-clr: #fcfcfc;
     --border-radius: 10px;
-
 }
+
+/*---------Shared styles---------*/
 
 * {
     box-sizing: border-box;
@@ -55,10 +51,6 @@ body {
     z-index: auto;
 }
 
-.head-container {
-    padding: 90px 0;
-}
-
 .search-input {
     padding: 0.4em;
     font-size: 1.1rem;
@@ -73,6 +65,7 @@ body {
     box-shadow: var(--btn-hover-shadow);
 }
 
+/* In the current location and forecast screen little headings */
 .subheading {
     font-size: 1.5rem;
 }
@@ -101,14 +94,19 @@ body {
     color: #767676;
 }
 
-.spinner-cont {
+.start__spinner-cont, .spinner-container {
     width: 15%;
+    min-width: 100px;
     padding: 1em;
     margin: 6em auto;
     text-align: center;
     background-color: var(--main-background-clr);
     box-shadow: var(--main-shadow);
     border-radius: 3%;
+}
+
+.start__spinner-cont {
+    display:none;
 }
 
 .spinner {

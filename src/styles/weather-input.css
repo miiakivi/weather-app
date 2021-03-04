@@ -1,3 +1,5 @@
+/*----------Input elements styles--------------*/
+
 .search-loc {
     display: none;
     text-align: right;
@@ -24,6 +26,8 @@
     top: 35%;
     right: 12%;
 }
+
+/*-------Error message styles------*/
 
 .error-cont {
     width: 100%;

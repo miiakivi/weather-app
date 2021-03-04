@@ -1,5 +1,3 @@
-import spinner from "../images/spinner.svg";
-
 import {
     createCurrentWeatherInfo,
     createFiveDayForecast,
@@ -18,18 +16,11 @@ import {
     fetchForecastWeatherData
 } from "./async";
 
-import lookup from "country-code-lookup";
-
 let currentWeather = {};
 let forecastData = [];
 
 let temperature = 'cel';
 
-function getCountryCode(input) {
-    let location = input.value;
-    return location.split(',');
-
-}
 
 function processWeatherData(location) {
 
@@ -128,5 +119,6 @@ document.querySelector('.weath--cont').addEventListener('click', (e) => {
         createFiveDayForecast(forecastData, temperature);
     }
 })
+
 
 export {processWeatherData}

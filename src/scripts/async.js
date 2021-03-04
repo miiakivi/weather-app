@@ -1,29 +1,9 @@
-import lookup from "country-code-lookup";
+import {getCountryCode} from './helpers';
 
 let apiKey = '68f520abb598fb1452dd8381782372e7';
 
-function getCountryCode(location) {
-    let country = '';    
-    let countryName = location.split(' ');
-    
-    // checks if country name has two parts
-    if(countryName.length > 1) {
-        for (let i = 0; i < countryName.length; i++) {
-            // Change each word to start with uppercase
-            countryName[i] = countryName[i][0].toUpperCase() + countryName[i].substr(1);
-        }
-        country = countryName.join(' ');
-    } else {
-        country = location.charAt(0).toUpperCase() + location.slice(1);
-    }
 
-    let countryCode = lookup.byCountry(country).internet;
-    console.log('country is ' + location + ' and countryCode is ' + countryCode)
-    return countryCode;
-}
-
-// Fetches current weather from a location
-async function fetchCurrentWeatherData(location) {
+function getLocationURL(location) {
     let locationArr = location.split(', ');
     let url = '';
 
@@ -34,11 +14,15 @@ async function fetchCurrentWeatherData(location) {
     if ( locationArr.length === 1 ) {
         url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
     }
+    return url
+}
 
+// Fetches current weather from a location
+async function fetchCurrentWeatherData(location) {
+    let url = getLocationURL(location);
     const response = await fetch(url);
 
     if ( response.status !== 200 ) {
-        console.log('country is ' + locationArr[1]);
         throw new Error('cannot fetch the data');
     }
     return await response.json();

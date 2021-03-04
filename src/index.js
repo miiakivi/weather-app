@@ -3,13 +3,14 @@ import regeneratorRuntime from "regenerator-runtime";
 
 import {
     switchScreenDisplay,
+    createLoadingSpinner,
 } from './scripts/helpers';
 
 import {
     processWeatherData
 } from './scripts/processData'
 
-
+import spinner from "./images/spinner.svg";
 
 const searchInput = document.querySelector('.search-cont__input');
 const locationInputBtn = document.querySelector('.search-cont__btn');
@@ -29,6 +30,7 @@ function processWeatherDataAfterEnter(e, input) {
             // input field in the main weather info page
         } else if (input.id === 'search-location-weather') {
             processWeatherData(input.value);
+            mainWeatherInfoCont.innerHTML = createLoadingSpinner();
             input.value = '';
             document.querySelector('.forecast-cont').innerHTML = ' ';
         }
@@ -50,6 +52,7 @@ function processDataAfterIconClick(e) {
         targetValue = document.querySelector('#search-location-weather').value;
         if (targetValue !== '') {
             processWeatherData(targetValue);
+            mainWeatherInfoCont.innerHTML = createLoadingSpinner();
             document.querySelector('#search-location-weather').value = '';
             document.querySelector('.forecast-cont').innerHTML = ' ';
         }
@@ -60,7 +63,7 @@ function processDataAfterError(e, input) {
     // When user clicks icon process weather data from input field
     if (e.target.id === 'error-icon') {
         if (input.value !== '') {
-            mainWeatherInfoCont.innerHTML = ' ';
+            mainWeatherInfoCont.innerHTML = createLoadingSpinner();
             processWeatherData(input.value);
             input.value = '';
         }
@@ -72,7 +75,6 @@ function processDataAfterError(e, input) {
         })
     }
 }
-
 
 
 function eventListeners() {

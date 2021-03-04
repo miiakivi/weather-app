@@ -1,5 +1,9 @@
 /*Starting screen element styles*/
 
+.head-container {
+    padding: 90px 0;
+}
+
 .search-cont {
     color: var(--main-dark-clr);
 }
@@ -10,7 +14,6 @@
     border-radius: var(--border-radius);
     box-shadow: var(--main-shadow);
 }
-
 
 .search-cont__text {
     width: 100%;
@@ -51,8 +54,6 @@
     margin-right: auto;
 }
 
-
-
 .search-cont__form {
     display: grid;
     grid-template-columns: 1fr;
@@ -77,7 +78,6 @@
     position: absolute;
     top: 6%;
     right: 2%;
-
 }
 
 .search-cont__btn {
@@ -94,7 +94,6 @@
     background-color: var(--main-btn-clr);
     color: var(--main-dark-clr);
     transition: all 0.2s ease-in-out;
-
 }
 
 .search-cont__btn:hover,

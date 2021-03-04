@@ -1,4 +1,5 @@
 import spinner from "../images/spinner.svg";
+import lookup from "country-code-lookup";
 
 const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
@@ -14,12 +15,15 @@ function returnFahrenheit(value) {
 function getSunsetOrSunrise(time, timezoneOffset) {
     let sunTime = new Date((time + timezoneOffset) * 1000);
     let minutes = sunTime.getUTCMinutes();
-    if(minutes < 10) {
+    if ( minutes < 10 ) {
         minutes = '0' + minutes;
     }
     return sunTime.getUTCHours() + ":" + minutes;
 }
 
+function createLoadingSpinner() {
+    return `<div class="spinner-container"><img class="spinner" src="${spinner}" alt=""></div> `;
+}
 
 function switchScreenDisplay() {
     let currentDayWeatherCont = document.querySelector('.weath--cont');
@@ -31,11 +35,9 @@ function switchScreenDisplay() {
         weatherSearchInput.classList.add('fade-in');
     }, 200);
     setTimeout(() => {
-        if(currentDayWeatherCont.innerHTML === '') {
-            // If weather info has not yet come from api, create spinner as info loads from the server
-            console.log('weather container is empty')
-            currentDayWeatherCont.innerHTML = `<div class="spinner-cont"><img class="spinner" src="${spinner}" alt=""></div> `
-        }
+
+        // currentDayWeatherCont.innerHTML = `<div class="spinner-cont"><img class="spinner" src="${spinner}" alt=""></div> `
+        document.querySelector('.start__spinner-cont').style.display = 'block';
         currentDayWeatherCont.style.display = 'block';
         weatherSearchInput.style.display = 'block';
     }, 200);
@@ -60,7 +62,7 @@ function getLocalTime(timezoneOffset) {
     let time = new Date(now * 1000);
     let hours = time.getUTCHours();
     let minutes = time.getUTCMinutes();
-    if(minutes < 10 ) minutes = '0' + minutes;
+    if ( minutes < 10 ) minutes = '0' + minutes;
     return hours + ":" + minutes;
 }
 
@@ -75,7 +77,7 @@ function getTemperature(obj, temp) {
     let max;
     let icon;
 
-    if (temp === 'cel') {
+    if ( temp === 'cel' ) {
         temperature = obj.temperature.cel;
         min = obj.tempMin.cel;
         max = obj.tempMax.cel;
@@ -89,6 +91,22 @@ function getTemperature(obj, temp) {
     return {temperature, min, max, icon}
 }
 
+// return country code that can be used in api, if user wants to search location using city's name and country's name
+function getCountryCode(location) {
+    let country = '';
+    let countryName = location.split(' ');
+    // checks if country name has two parts
+    if ( countryName.length > 1 ) {
+        for (let i = 0; i < countryName.length; i++) {
+            // Change each word to start with uppercase
+            countryName[i] = countryName[i][0].toUpperCase() + countryName[i].substr(1);
+        }
+        country = countryName.join(' ');
+    } else {
+        country = location.charAt(0).toUpperCase() + location.slice(1);
+    }
+    return lookup.byCountry(country).internet;
+}
 
 export {
     returnCelsius,
@@ -98,5 +116,7 @@ export {
     getCurrentDate,
     getLocalTime,
     firstToUpper,
-    getTemperature
+    getTemperature,
+    createLoadingSpinner,
+    getCountryCode,
 }

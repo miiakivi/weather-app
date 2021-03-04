@@ -1,3 +1,5 @@
+/*----------Forecast weather container styles-------*/
+
 .forecast-cont {
     width: 100%;
     padding: 2em;
@@ -25,16 +27,11 @@
     box-shadow: var(--main-shadow);
     background-color: var(--main-background-clr);
     border-radius: var(--border-radius);
-    /* border: 2px solid var(--main-dark-clr);*/
-
 }
 
 .forecast__date {
     font-size: 0.9rem;
-
     border-bottom: 2px solid var(--main-btn-clr);
-
-    /*border-radius: var(--border-radius) var(--border-radius) 0 0;*/
 }
 
 .forecast__weekday {
@@ -54,8 +51,6 @@
 }
 
 @media only screen and (max-width: 690px) {
-
-
     .forecast-cont {
         padding: 0.5em !important;
     }
@@ -77,7 +72,6 @@
     }
 }
 
-
 @media only screen and (max-width: 368px) {
     .forecast-cont__container {
         display: flex;
@@ -94,12 +88,5 @@
     #box-0, #box-1, #box-2, #box-3  {
         width: 100%;
         margin: 0 auto;
-
     }
-
-}
-
-
-@media only screen and (max-width: 310px) {
-
 }
