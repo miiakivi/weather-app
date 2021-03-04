@@ -1,9 +1,12 @@
 .search-loc {
     display: none;
     text-align: right;
-    width: 95%;
+    width: 100%;
     margin: 0;
-    padding: 1em 0;
+    padding: 0.5em 0 0.5em 0;
+    background-color: rgba(252, 252, 252, 0.41);
+    border-radius: var(--border-radius);
+    box-shadow: var(--main-shadow);
 }
 
 .search-loc__container {
@@ -21,7 +24,6 @@
     top: 35%;
     right: 12%;
 }
-
 
 .error-cont {
     width: 100%;
@@ -52,6 +54,7 @@
     padding: 1em;
     position: relative;
 }
+
 .error__input {
     width: 70%;
 }
@@ -64,5 +67,15 @@
     margin-bottom: 1em;
 }
 
+@media only screen and (max-width: 230px) {
+    .material-icons.second.input-icon {
+        top: 20% !important;
+    }
 
+    .search-loc__container {
+        padding: 0 0.5em !important;
+        text-align: right;
+        position: relative;
+    }
+}
 

@@ -14,7 +14,7 @@
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding-bottom: 1.6rem;
+    padding-bottom: 1em;
     border-radius: var(--border-radius);
     background-color: var(--main-background-clr);
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
@@ -139,7 +139,7 @@
 }
 
 .text-cont__img {
-    justify-self:center;
+    justify-self: center;
 }
 
 .text-cont__img img {
@@ -147,5 +147,91 @@
     width: 1.8rem;
     height: 1.8rem;
 }
+
+@media only screen and (max-width: 690px) {
+    .weath--cont__container {
+        width: 90% !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .change-temp-degree-btn {
+        font-size: 1.3rem;
+    }
+
+    .weath--cont__info {
+        grid-template-rows: 10rem 5rem !important;
+        padding-bottom: 0.5em;
+        font-size: 0.9rem;
+    }
+
+    .location__temp {
+        font-size: 4rem !important;
+    }
+
+    .local-time-container {
+        margin-top: 5% !important;
+    }
+
+    .weath--cont__text {
+        font-size: 0.8rem !important;
+    }
+
+    .weath--cont__location::after {
+        width: 8rem;
+        left: 70%;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .weath--cont__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .location__temp {
+        font-size: 5rem !important;
+    }
+
+    .location__city, .location__local-time {
+        font-size: 1rem;
+    }
+
+    .weath--cont__img img {
+        width: 50% !important;
+        margin-top: 0;
+        margin-bottom: 2em;
+    }
+
+    .weath--cont__location::after {
+        transform: rotate(0deg) !important;
+        position: relative;
+        left: 0;
+    }
+
+    .weath--cont__text {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .text-cont {
+        display: block !important;
+        justify-self: center;
+    }
+
+    #sunset, #sunrise {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        justify-self: end;
+    }
+
+    #sunset {
+        grid-area: 2 / 3 / 3 / 4;
+        justify-self: start;
+    }
+}
+
+
 
 

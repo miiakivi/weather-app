@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 const path = require('path');
 
@@ -48,6 +49,27 @@ module.exports = {
             title: "Webpack Output",
             template: 'src/template.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new ImageMinimizerPlugin({
+            minimizerOptions: {
+                // Lossless optimization with custom option
+                // Feel free to experiment with options for better result for you
+                plugins: [
+                    ['gifsicle', { interlaced: true }],
+                    ['jpegtran', { progressive: true }],
+                    ['optipng', { optimizationLevel: 5 }],
+                    [
+                        'svgo',
+                        {
+                            plugins: [
+                                {
+                                    removeViewBox: false,
+                                },
+                            ],
+                        },
+                    ],
+                ],
+            },
+        }),
     ],
 };

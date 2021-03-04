@@ -1,3 +1,5 @@
+import spinner from "../images/spinner.svg";
+
 const starSearchContainer = document.querySelector('.search-cont');
 const searchInput = document.querySelector('.search-cont__input');
 
@@ -11,7 +13,11 @@ function returnFahrenheit(value) {
 
 function getSunsetOrSunrise(time, timezoneOffset) {
     let sunTime = new Date((time + timezoneOffset) * 1000);
-    return sunTime.getUTCHours() + ":" + sunTime.getUTCMinutes();
+    let minutes = sunTime.getUTCMinutes();
+    if(minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    return sunTime.getUTCHours() + ":" + minutes;
 }
 
 
@@ -25,6 +31,11 @@ function switchScreenDisplay() {
         weatherSearchInput.classList.add('fade-in');
     }, 200);
     setTimeout(() => {
+        if(currentDayWeatherCont.innerHTML === '') {
+            // If weather info has not yet come from api, create spinner as info loads from the server
+            console.log('weather container is empty')
+            currentDayWeatherCont.innerHTML = `<div class="spinner-cont"><img class="spinner" src="${spinner}" alt=""></div> `
+        }
         currentDayWeatherCont.style.display = 'block';
         weatherSearchInput.style.display = 'block';
     }, 200);

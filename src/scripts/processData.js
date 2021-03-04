@@ -18,25 +18,32 @@ import {
     fetchForecastWeatherData
 } from "./async";
 
+import lookup from "country-code-lookup";
+
 let currentWeather = {};
 let forecastData = [];
 
 let temperature = 'cel';
 
+function getCountryCode(input) {
+    let location = input.value;
+    return location.split(',');
+
+}
 
 function processWeatherData(location) {
-    document.querySelector('.weath--cont').innerHTML = `<div class="spinner-cont"><img class="spinner" src="${spinner}" alt=""></div> `
+
     // Reset variables if user has searched multiple times different locations
     currentWeather = {};
     forecastData = [];
+
     fetchCurrentWeatherData(location)
         .then((response) => {
             createCurrentWeatherObj(response);
-            createCurrentWeatherInfo(currentWeather, temperature);
-
             fetchForecastWeatherData(currentWeather)
                 .then((response) => {
                     createWeatherForecastObj(response);
+                    createCurrentWeatherInfo(currentWeather, temperature);
                     createFiveDayForecast(forecastData, temperature);
                 })
         })

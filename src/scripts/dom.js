@@ -56,11 +56,11 @@ function createCurrentWeatherHtml(obj, currentDate, description, weatherIcon, de
                                 <p>min/max</p>
                                 <span>${degreeUnit.min}&#176; / ${degreeUnit.max}&#176;</span>
                             </div>
-                            <div class="text-cont text-cont__img">
+                            <div id="sunrise" class="text-cont text-cont__img">
                                 <img src="${sunrise}" alt="">
                                 <span>${obj.sunrise}</span>
                             </div>
-                            <div class="text-cont text-cont__img">
+                            <div id="sunset" class="text-cont text-cont__img">
                                 <img src="${sunset}" alt="">
                                 <span>${obj.sunset}</span>
                             </div>

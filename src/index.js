@@ -10,6 +10,7 @@ import {
 } from './scripts/processData'
 
 
+
 const searchInput = document.querySelector('.search-cont__input');
 const locationInputBtn = document.querySelector('.search-cont__btn');
 
@@ -71,6 +72,7 @@ function processDataAfterError(e, input) {
         })
     }
 }
+
 
 
 function eventListeners() {
