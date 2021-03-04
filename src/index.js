@@ -102,7 +102,6 @@ function processDataAfterButtonClick(input) {
 
 
 function eventListeners() {
-
     // When user tries search weather after error msg, process that data.
     mainWeatherInfoCont.addEventListener('click', (e) => {
         let targetInput = document.querySelector('.error__input');
